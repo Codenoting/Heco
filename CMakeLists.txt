@@ -8,6 +8,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
+add_library(Hecodll STATIC src/)
+
+
 include(CTest)
 enable_testing()
 
@@ -15,3 +18,6 @@ set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include_directories(inc)
 include(CPack)
+
+add_executable(Main scripts/main.cpp)
+target_link_libraries(Main Hecodll)
