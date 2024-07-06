@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 project(Heco VERSION 0.1.0 LANGUAGES C CXX)
 
+file(GLOB LIB_SOURCES
+    "src/*.cpp"
+)
 add_library(Heco Heco.cpp)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -8,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
-add_library(Hecodll STATIC src/)
+add_library(Hecodll STATIC ${LIB_SOURCES})
 
 
 include(CTest)
